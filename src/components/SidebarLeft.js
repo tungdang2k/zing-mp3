@@ -12,7 +12,7 @@ const activeStyle =
 //
 const SidebarLeft = () => {
     return (
-        <div className="flex flex-col bg-[#d9d7d4]">
+        <div className="flex flex-col h-full bg-main-200">
             <div className="w-full h-[70px] py-[15px] px-[25px] flex justify-center items-center">
                 <img src={logo} alt="logo" className="h-10 w-[120px]" />
             </div>
