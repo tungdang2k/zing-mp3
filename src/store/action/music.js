@@ -6,4 +6,9 @@ export const setCurrentSongId = (songId ) => ({
     songId
 })
 
+export const play = (flag ) => ({
+    type:actionTypes.PLAY,
+    flag
+})
+
 

@@ -25,9 +25,10 @@ const Slider = () => {
                 silderEls[i]?.classList?.remove('animate-slide-left2', 'order-2', 'z-10')
 
                 if(list.some(item => item === i) ){
-                    silderEls[i].style.display = `none`
+                    silderEls[i].style.cssText = `display: none`
+
                 }else{
-                    silderEls[i].style.display = `block`
+                  silderEls[i].style.cssText = `display: block`
                     
                 }
             }
@@ -49,16 +50,8 @@ const Slider = () => {
             // if(max > silderEls.length - 1 ) max = 0
             // if(min > silderEls.length - 1 ) min = 0
 
-            if(min === silderEls.length - 1){
-              min = 0
-            }else{
-              min +=1
-            }
-            if(max === silderEls.length - 1){
-              max =0
-            }else{
-              max +=1
-            }
+            min = (min === silderEls.length - 1) ? 0 : min + 1
+            max = (max === silderEls.length - 1) ? 0 : max + 1
 
 
         }, 3000);
@@ -69,9 +62,11 @@ const Slider = () => {
     },[])
 
     const handleClickBanner = (item)=>{
-      if(item?.type === 4){
+      if(item?.type === 1 ){
         dispatch(action.setCurrentSongId(item.encodeId))
+        dispatch(action.play(true))
       }
+      
     }
   return (
     <div className='w-full overflow-hidden px-[59px]'>
@@ -84,7 +79,7 @@ const Slider = () => {
             alt={item.banner}
             key={item.encodeId}
             onClick={() => handleClickBanner(item)}
-            className={`slider flex-1 object-contain w-[30%] rounded-lg ${index <= 2 ? 'block' : 'hidden'} ` }
+            className={`slider flex-1 object-contain w-[30%] rounded-lg cursor-pointer ${index <= 2 ? 'block' : 'hidden'} ` }
           />
         ))}
       </div>
