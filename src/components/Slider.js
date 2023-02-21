@@ -1,5 +1,6 @@
 import React,{useEffect, useRef} from "react";
 import { useSelector,useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { getArrSlider } from "../untils/fn";
 import * as action from '../store/action'
@@ -7,7 +8,8 @@ import * as action from '../store/action'
 const Slider = () => {
   const { banner } = useSelector((state) => state.app);
   const dispatch = useDispatch()
-    const listElement = useRef()
+  const listElement = useRef()
+  const naviage = useNavigate()
 
     useEffect(()=>{
       const  silderEls = document.getElementsByClassName('slider')  
@@ -65,6 +67,12 @@ const Slider = () => {
       if(item?.type === 1 ){
         dispatch(action.setCurrentSongId(item.encodeId))
         dispatch(action.play(true))
+        // console.log(item);
+
+      }else if(item?.type === 4){
+        const albumPath  = item?.link?.split(".")[0]
+        naviage(albumPath)
+        // console.log(albumPath);
       }
       
     }

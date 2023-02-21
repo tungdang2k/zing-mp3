@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { Home, Public, Login } from "./containers/public"
+import { Home, Public, Login, Album } from "./containers/public"
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from "react";
 
@@ -13,7 +13,7 @@ function App() {
   useEffect(()=>{
     dispatch(action.getHome())
   },[])
-  const { homeData } = useSelector(state => state.app)
+  // const { homeData } = useSelector(state => state.app)
 
   return (
     <>
@@ -22,8 +22,10 @@ function App() {
           <Route path={path.PUBLIC} element={<Public />}>
             <Route path={path.HOME} element={<Home />} />
             <Route path={path.LOGIN} element={<Login />} />
-
-            <Route path={path.STAR} element={<Login />} />
+            <Route path={path.ALBUM__TITLE__PID } element={<Album/>}/>
+            <Route path={path.PLAYLIST__TITLE__PID } element={<Album/>}/>
+ 
+            <Route path={path.STAR} element={<Home />} />
           </Route>
         </Routes>
       </div>
