@@ -67,15 +67,17 @@ const Slider = () => {
       if(item?.type === 1 ){
         dispatch(action.setCurrentSongId(item.encodeId))
         dispatch(action.play(true))
-        // console.log(item);
-
+        dispatch(action.setPlaylist(null))
       }else if(item?.type === 4){
         const albumPath  = item?.link?.split(".")[0]
         naviage(albumPath)
-        // console.log(albumPath);
+      }else{
+        dispatch(action.setPlaylist(null))
+
       }
-      
     }
+
+    
   return (
     <div className='w-full overflow-hidden px-[59px]'>
       <div className="flex gap-8 w-full pt-8 " 

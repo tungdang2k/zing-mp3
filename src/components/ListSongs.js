@@ -1,11 +1,16 @@
 import React, { memo } from "react";
+import moment from "moment";
+import { useSelector } from "react-redux";
+
 
 import ListSong from "./ListSong";
-import icons from "../untils/icons"; 
-import moment from "moment";
+import icons from "../untils/icons";
+
 const {BsDot} = icons
 
-const ListSongs = ({ songs, total, totalduration }) => {
+const ListSongs = ({  total, totalduration }) => {
+
+  const {songs} = useSelector(state => state.music )
   return (
     <div>
       <div className="w-full flex flex-col text-xs text-gray-600">

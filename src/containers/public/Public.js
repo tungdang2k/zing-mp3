@@ -11,10 +11,11 @@ const Public = () => {
           <SidebarLeft />
         </div>
         <div className="flex-auto border border-red-500 ">
-          <div className="h-[70px]  px-[59px] flex items-center  ">
+          <div className="h-[70px] px-[59px] flex items-center  ">
             <Header />
           </div>
           <Outlet />
+          <div className="w-full h-[500px]"></div>
         </div>
         <div className="w-[329px] flex-none hidden 1600:flex border border-green-500 animate-slide-left">
           {/* <SidebarRight /> */}
