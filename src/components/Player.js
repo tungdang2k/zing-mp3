@@ -5,7 +5,7 @@ import moment from "moment";
 import * as apis from "../apis";
 import icons from "../untils/icons";
 import * as actions from "../store/action";
-
+import { LoadingSong } from "./";
 const {
   AiOutlineHeart,
   HiDotsHorizontal,
@@ -15,10 +15,14 @@ const {
   FiRepeat,
   FaPlay,
   AiOutlinePause,
-  TbRepeatOnce
+  TbRepeatOnce,
+  BsMusicNoteList,
+  BsVolumeMuteFill,
+  BsFillVolumeUpFill,
+  BsVolumeDownFill,
 } = icons;
 
-const Player = () => {
+const Player = ({ setIsShowRightSidebar }) => {
   const { currentSongId, isPlaying, songs } = useSelector(
     (state) => state.music
   );
@@ -26,18 +30,23 @@ const Player = () => {
   const [curSeconds, setCurSeconds] = useState(0);
   const [isShuffle, setIsShuffle] = useState(false);
   const [repeatMode, setRepeatMode] = useState(0);
+  const [isLoadedSource, setIsLoadedSource] = useState(true);
   const [audio, setAudio] = useState(new Audio());
+  const [volume, setVolume] = useState(100);
+
   const dispatch = useDispatch();
   const thumbRef = useRef();
   const trackRef = useRef();
 
   useEffect(() => {
     const fetchDetailtSong = async () => {
+      setIsLoadedSource(false);
+
       const [res1, res2] = await Promise.all([
         apis.apiGetDetailSong(currentSongId),
         apis.apiGetSong(currentSongId),
       ]);
-
+      setIsLoadedSource(true);
       if (res1.data.err === 0) {
         setSongInfo(res1?.data?.data);
       }
@@ -58,7 +67,7 @@ const Player = () => {
 
   useEffect(() => {
     let intervalId;
-    
+
     audio.load();
     if (isPlaying) {
       audio.play();
@@ -71,26 +80,29 @@ const Player = () => {
       }, 200);
     }
 
-    return ()=> intervalId && clearInterval(intervalId);
+    return () => intervalId && clearInterval(intervalId);
   }, [audio]);
 
-  useEffect(()=>{
-
-    const handleEnded = ()=>{
-      if(isShuffle){
-        handleShuffle()
-      }else if (repeatMode){
-        repeatMode  === 1 ? handleRepeatOne()  :   handleNextSong()
-      }else{
+  useEffect(() => {
+    const handleEnded = () => {
+      if (isShuffle) {
+        handleShuffle();
+      } else if (repeatMode) {
+        repeatMode === 1 ? handleRepeatOne() : handleNextSong();
+      } else {
         audio.pause();
         dispatch(actions.play(false));
       }
-    }
-    audio.addEventListener('ended' , handleEnded)
+    };
+    audio.addEventListener("ended", handleEnded);
 
-    return ()=>audio.removeEventListener('ended' , handleEnded)
-  },[audio,isShuffle,repeatMode])
+    return () => audio.removeEventListener("ended", handleEnded);
+  }, [audio, isShuffle, repeatMode]);
 
+  useEffect(()=>{
+    audio.volume = volume / 100;
+
+  },[volume])
   const handleTogglePlayMusic = () => {
     if (isPlaying) {
       audio.pause();
@@ -100,7 +112,6 @@ const Player = () => {
       dispatch(actions.play(true));
     }
   };
-
 
   const handleClickProgressbar = (e) => {
     const trackRect = trackRef.current.getBoundingClientRect();
@@ -112,9 +123,9 @@ const Player = () => {
     setCurSeconds(Math.round((percent * songInfo.duration) / 100));
   };
 
-  const handleRepeatOne =() => {
-    audio.play()
-  }
+  const handleRepeatOne = () => {
+    audio.play();
+  };
 
   const handlePrevSong = () => {
     if (songs) {
@@ -139,11 +150,10 @@ const Player = () => {
   };
 
   const handleShuffle = () => {
-    const randomIndex = Math.round(Math.random() * songs?.length ) - 1 
+    const randomIndex = Math.round(Math.random() * songs?.length) - 1;
     dispatch(actions.setCurrentSongId(songs[randomIndex].encodeId));
     dispatch(actions.play(true));
   };
-
   return (
     <div className="bg-main-400 px-5 h-full  flex">
       <div className="w-[30%] flex-auto  gap-3 flex items-center ">
@@ -170,12 +180,11 @@ const Player = () => {
         </div>
       </div>
 
-      <div className="w-[40%] flex-auto flex flex-col items-center justify-center gap-2 border border-red-500 py-2 ">
+      <div className="w-[40%] flex-auto flex flex-col items-center justify-center gap-2  py-2 ">
         <div className="flex gap-8  justify-center items-center ">
           <span
-            onClick={  ()=>  setIsShuffle((prev) => !prev)
-            }
-            className={` cursor-pointer ${isShuffle && "text-purple-600"} ` }
+            onClick={() => setIsShuffle((prev) => !prev)}
+            className={` cursor-pointer ${isShuffle && "text-purple-600"} `}
             title="Bật phát ngẫu nhiên"
           >
             <BiShuffle size={20} />
@@ -190,7 +199,15 @@ const Player = () => {
             onClick={handleTogglePlayMusic}
             className="p-2 border border-gray-700 cursor-pointer rounded-full hover:text-main-500 "
           >
-            {isPlaying ? <AiOutlinePause size={18} /> : <FaPlay size={18} />}
+            {!isLoadedSource ? (
+              <LoadingSong />
+            ) : isPlaying ? (
+              <AiOutlinePause size={18} />
+            ) : (
+              <FaPlay size={18} />
+            )}
+          
+          
           </span>
           <span
             onClick={handleNextSong}
@@ -198,15 +215,22 @@ const Player = () => {
           >
             <BiSkipNext size={32} />
           </span>
-          <span onClick={()=>setRepeatMode(repeat => repeat === 2 ? 0 : repeat + 1 )} className={` cursor-pointer ${repeatMode && "text-purple-600"} ` } title="Bật phát lại tất cả">
-            {repeatMode === 1  ?   <TbRepeatOnce size={20}/>:<FiRepeat size={20} />}
-            
+          <span
+            onClick={() =>
+              setRepeatMode((repeat) => (repeat === 2 ? 0 : repeat + 1))
+            }
+            className={` cursor-pointer ${repeatMode && "text-purple-600"} `}
+            title="Bật phát lại tất cả"
+          >
+            {repeatMode === 1 ? (
+              <TbRepeatOnce size={20} />
+            ) : (
+              <FiRepeat size={20} />
+            )}
           </span>
         </div>
         <div className="w-full flex justify-center gap-2 items-center text-xs ">
-          <span>
-            {moment.utc(curSeconds * 1000).format("mm:ss")}
-          </span>
+          <span>{moment.utc(curSeconds * 1000).format("mm:ss")}</span>
           <div
             onClick={handleClickProgressbar}
             ref={trackRef}
@@ -214,15 +238,39 @@ const Player = () => {
           >
             <div
               ref={thumbRef}
-              className="absolute top-0 left-0 bottom-0 h-full bg-[#0e8080] rounded-l-full rounded-r-full ">
-            </div>
+              className="absolute top-0 left-0 bottom-0 h-full bg-[#0e8080] rounded-l-full rounded-r-full "
+            ></div>
           </div>
-          <span>
-            {moment.utc(songInfo?.duration * 1000).format("mm:ss")}
-          </span>
+          <span>{moment.utc(songInfo?.duration * 1000).format("mm:ss")}</span>
         </div>
       </div>
-      <div className="w-[30%] flex-auto border border-red-500 "> volume</div>
+      <div className="w-[30%] flex-auto flex justify-end items-center gap-4  ">
+        <div className="flex gap-2 items-center">
+          <span onClick={() => setVolume((prev) => (+prev === 0 ? 70 : 0))}>
+            {+volume >= 50 ? (
+              <BsFillVolumeUpFill />
+            ) : +volume === 0 ? (
+              <BsVolumeMuteFill />
+            ) : (
+              <BsVolumeDownFill />
+            )}
+          </span>
+          <input
+            type="range"
+            step={1}
+            min={0}
+            max={100}
+            value={volume}
+            onChange={(e)=>setVolume(e.target.value) }
+          />
+        </div>
+        <span
+          onClick={() => setIsShowRightSidebar((prev) => !prev)}
+          className="p-1 rounded-sm cursor-pointer bg-main-500 opacity-90 hover:opacity-100 "
+        >
+          <BsMusicNoteList size={20} />
+        </span>
+      </div>
     </div>
   );
 };

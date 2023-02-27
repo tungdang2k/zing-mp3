@@ -1,10 +1,11 @@
 import { MdOutlineLibraryMusic, } from 'react-icons/md'
 import { RiDonutChartFill, } from 'react-icons/ri'
 import { AiOutlineCiCircle,AiOutlineHeart,AiFillHeart,AiOutlinePause } from 'react-icons/ai'
-import { BsLayoutTextSidebar, BsArrowRight, BsArrowLeft,BsDot,BsFillPlayFill } from 'react-icons/bs'
+import { BsLayoutTextSidebar, BsArrowRight, BsArrowLeft,BsDot,BsFillPlayFill,BsMusicNoteList,BsVolumeMuteFill,
+    BsFillVolumeUpFill, BsVolumeDownFill} from 'react-icons/bs'
 import {FiSearch,FiRepeat} from 'react-icons/fi'
 import {HiDotsHorizontal}from 'react-icons/hi'
-import {BiSkipNext,BiSkipPrevious,BiShuffle}from 'react-icons/bi'
+import {BiSkipNext,BiSkipPrevious,BiShuffle,}from 'react-icons/bi'
 import {FaPlay}from 'react-icons/fa'
 import {CiMusicNote1}from 'react-icons/ci'
 import {TbRepeatOnce}from 'react-icons/tb'
@@ -30,6 +31,10 @@ const icons = {
     CiMusicNote1,
     TbRepeatOnce,
     BsFillPlayFill,
+    BsMusicNoteList,
+    BsVolumeMuteFill,
+    BsFillVolumeUpFill,
+    BsVolumeDownFill,
     
 }
 
