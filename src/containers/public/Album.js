@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import moment from "moment/moment";
 import { Scrollbars } from "react-custom-scrollbars";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,6 +12,8 @@ import icons from "../../untils/icons";
 const { BsFillPlayFill } = icons;
 
 const Album = () => {
+
+  const location = useLocation()
   const {isPlaying} = useSelector(
     (state) => state.music
   );
@@ -32,7 +34,15 @@ const Album = () => {
     };
     fetchDetailPlayList();
   }, [pid]);
-  // console.log(playlistData);
+
+  useEffect(()=>{
+
+    if(location.state?.playAlbum){
+      const randomSong = Math.round(Math.random() * playlistData?.song?.items?.length ) - 1
+      dispatch(actions.setCurrentSongId(playlistData?.song?.items[randomSong?.encodeId])) 
+      dispatch(actions.play(true))
+    }
+  },[pid,playlistData])
 
   return (
     <div className="flex relative gap-8 w-full h-full px-[59px] ">

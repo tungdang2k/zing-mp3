@@ -27,15 +27,11 @@ const ListSong = ({ songdata }) => {
           className=" w-10 h-10 object-cover rounded-md "
         />
         <span className="flex flex-col">
-          <span className="text-sm font-semibold">
-            {songdata?.title?.length > 25
-              ? `${songdata?.title.slice(0, 25)}...`
-              : songdata?.title}
+          <span className="text-sm font-semibold ellipsis">
+              {songdata?.title}
           </span>
-          <span className="">
-            {songdata?.artistsNames?.length > 25
-              ? `${songdata?.artistsNames.slice(0, 25)}...`
-              : songdata?.artistsNames}
+          <span className="ellipsis">
+              {songdata?.artistsNames}
           </span>
         </span>
       </div>

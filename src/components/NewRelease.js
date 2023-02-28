@@ -20,7 +20,7 @@ const NewRelease = () => {
     <div className="mt-12 px-[59px] ">
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-bold ">{newRelease?.title}</h3>
-        <span className="text-xs ">tat ca</span>
+        <span className="text-xs ">TẤT CẢ</span>
       </div>
       <div className="flex items-center gap-5 text-xs  ">
         <button

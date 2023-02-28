@@ -85,6 +85,26 @@ module.exports = {
             '-webkit-transform': 'scale(1);',
             transform: 'scale(1);'
           }
+        },
+        'scale-up-image':{
+          'from':{
+            '-webkit-transform': ' scale(1);',
+            transform: 'scale(1);',
+          },
+          'to':{
+            '-webkit-transform': 'scale(1.2);',
+            transform: 'scale(1.2);'
+          }
+        },
+        'scale-down-image':{
+          'from':{
+            '-webkit-transform': ' scale(1.2);',
+            transform: 'scale(1.2);',
+          },
+          'to':{
+            '-webkit-transform': 'scale(1);',
+            transform: 'scale(1);'
+          }
         }
       },
       animation: {
@@ -94,9 +114,12 @@ module.exports = {
         'rotate-center': 'rotate-center 8s linear infinite;',
         'rotate-center-pause': 'rotate-center-pause .5s linear 1 both;',
         'scale-up-center': 'scale-up-center .3s cubic-bezier(0.250, 0.460, 0.450, 0.940)  both;',
+        'scale-up-image': 'scale-up-image 1s cubic-bezier(0.250, 0.460, 0.450, 0.940)  both;',
+        'scale-down-image': 'scale-down-image 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940)  both;',
       },
       flex:{
-        '4':'4 4 0% '
+        '4':'4 4 0% ',
+        '6':'6 6 0% '
       }
 
     },
