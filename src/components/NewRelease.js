@@ -8,7 +8,7 @@ const NewRelease = () => {
   const [isActived, setIsActived] = useState(0);
   const [songs, setSongs] = useState([]);
 
-  useEffect(() => { 
+  useEffect(() => {
     isActived === 0
       ? setSongs(newRelease?.items?.all)
       : isActived === 1
@@ -54,14 +54,15 @@ const NewRelease = () => {
       </div>
       <div className="flex flex-wrap w-full  ">
         {songs?.map((item) => (
-          <SongItem
-            key={item.encodeId}
-            thumnail={item.thumbnail}
-            title={item.title}
-            artists={item.artistsNames}
-            releaseDate={item.releaseDate}
-            sid={item.encodeId}
-          />
+          <div key={item.encodeId} className="w-[45%] min-[1024px]:w-[30%]">
+            <SongItem
+              thumnail={item.thumbnail}
+              title={item.title}
+              artists={item.artistsNames}
+              releaseDate={item.releaseDate}
+              sid={item.encodeId}
+            />
+          </div>
         ))}
       </div>
     </div>

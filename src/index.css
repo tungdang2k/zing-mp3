@@ -17,6 +17,15 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+    .text-shadow-no1{
+        text-shadow: 1px 1px 0 #565eba, -1px 1px 0 #565eba, -1px -1px 0 #565eba, 1px -1px 0 #565eba   ;
+    }
+    .text-shadow-no2{
+        text-shadow: 1px 1px 0 #59b6b2, -1px 1px 0 #59b6b2, -1px -1px 0 #59b6b2, 1px -1px 0 #59b6b2   ;
+    }
+    .text-shadow-no3{
+        text-shadow: 1px 1px 0 #d14b53, -1px 1px 0 #d14b53, -1px -1px 0 #d14b53, 1px -1px 0 #d14b53   ;
+    }
 /* @tailwind plugins; */
 }
 
