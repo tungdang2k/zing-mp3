@@ -7,7 +7,7 @@ import * as actions from "../store/action";
 
 const { CiMusicNote1 } = icons;
 
-const ListSong = ({ songdata }) => {
+const ListSong = ({ songdata,isHideAlbum }) => {
   const dispatch = useDispatch();
 
   return (
@@ -22,25 +22,25 @@ const ListSong = ({ songdata }) => {
       }}
     >
       <div className="flex items-center gap-3 flex-1 justify-start">
-        <CiMusicNote1 size={16} />
+        { !isHideAlbum &&<CiMusicNote1 size={16} />}
         <img
           src={songdata?.thumbnailM}
           alt="thumbnail"
           className=" w-10 h-10 object-cover rounded-md "
         />
         <span className="flex flex-col">
-          <span className="text-sm font-semibold ellipsis">
+          <span className="text-sm font-semibold ellipsis1">
               {songdata?.title}
           </span>
-          <span className="ellipsis">
+          <span className="ellipsis text-xs opacity-70">
               {songdata?.artistsNames}
           </span>
         </span>
       </div>
-      <div className=" flex flex-1 items-center justify-start ">
+      { !isHideAlbum && <div className=" flex flex-1 items-center justify-start ellipsis1">
         {songdata?.album?.title}
-      </div>
-      <div className=" flex flex-1 justify-end ">
+      </div>}
+      <div className=" flex flex-1 justify-end text-xs ">
         {moment.utc(songdata?.duration * 1000).format("mm:ss")}
       </div>
     </div>

@@ -72,17 +72,9 @@ const SectionItem = ({
         />
       </div>
       <span className="flex flex-col">
-        <span className="font-semibold ">{title}</span>
+        <span className="font-semibold ellipsis1">{title}</span>
         <span className="ellipsis">
-          {sectionId === "h100" ? (
-            <div className="">
-              {artists?.map((artists) => (
-                <span key={artists.id}>{`${artists.name}, `}</span>
-              ))}
-            </div>
-          ) : (
-            sortDescription
-          )}
+           {sortDescription}
         </span>
       </span>
     </div>

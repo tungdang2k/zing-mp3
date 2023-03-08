@@ -1,6 +1,6 @@
 import { MdOutlineLibraryMusic, } from 'react-icons/md'
 import { RiDonutChartFill, } from 'react-icons/ri'
-import { AiOutlineCiCircle,AiOutlineHeart,AiFillHeart,AiOutlinePause } from 'react-icons/ai'
+import { AiOutlineCiCircle,AiOutlineHeart,AiFillHeart,AiOutlinePause,AiOutlineUserAdd } from 'react-icons/ai'
 import { BsLayoutTextSidebar, BsArrowRight, BsArrowLeft,BsDot,BsFillPlayFill,BsMusicNoteList,BsVolumeMuteFill,
     BsFillVolumeUpFill, BsVolumeDownFill} from 'react-icons/bs'
 import {FiSearch,FiRepeat} from 'react-icons/fi'
@@ -20,6 +20,7 @@ const icons = {
     AiFillHeart,
     AiOutlineHeart,
     AiOutlinePause,
+    AiOutlineUserAdd,
     FiSearch,
     FiRepeat,
     BiSkipNext,
