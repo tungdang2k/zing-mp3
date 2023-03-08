@@ -9,6 +9,7 @@ import {BiSkipNext,BiSkipPrevious,BiShuffle,}from 'react-icons/bi'
 import {FaPlay}from 'react-icons/fa'
 import {CiMusicNote1}from 'react-icons/ci'
 import {TbRepeatOnce}from 'react-icons/tb'
+import {ImBin}from 'react-icons/im'
 
 const icons = {
     BsArrowLeft,
@@ -35,6 +36,7 @@ const icons = {
     BsVolumeMuteFill,
     BsFillVolumeUpFill,
     BsVolumeDownFill,
+    ImBin,
     
 }
 

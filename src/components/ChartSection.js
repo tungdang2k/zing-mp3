@@ -21,7 +21,6 @@ const ChartSection = () => {
   })
   const [selected,setSelected ] = useState(null)
   const { chart, rank } = useSelector((state) => state.app);
-  console.log({chart, rank});
   const chartRef = useRef()
   const options = {
     responsive: true,
@@ -121,7 +120,7 @@ const ChartSection = () => {
               ?.map((item, index) => (
                   <SongItem
                     key={item.encodeId}
-                    thumnail={item.thumbnail}
+                    thumbnail={item.thumbnail}
                     title={item?.title}
                     artists={item?.artistsNames}
                     sid={item?.encodeId}
@@ -136,7 +135,7 @@ const ChartSection = () => {
             {data && <Line data={data} ref={chartRef} options={options} />}
             <div className="tooltip" style={{ top: tooltipState.top, left: tooltipState.left, opacity: tooltipState.opacity , position:'absolute'}} > 
             <SongItem
-                    thumnail={rank?.find(i=> i.encodeId === selected)?.thumbnail}
+                    thumbnail={rank?.find(i=> i.encodeId === selected)?.thumbnail}
                     title={rank?.find(i=> i.encodeId === selected)?.title}
                     artists={rank?.find(i=> i.encodeId === selected)?.artistsNames}
                     sid={rank?.find(i=> i.encodeId === selected)?.encodeId}

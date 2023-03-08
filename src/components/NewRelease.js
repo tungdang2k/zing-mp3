@@ -56,7 +56,7 @@ const NewRelease = () => {
         {songs?.map((item) => (
           <div key={item.encodeId} className="w-[45%] min-[1024px]:w-[30%]">
             <SongItem
-              thumnail={item.thumbnail}
+              thumbnail={item.thumbnail}
               title={item.title}
               artists={item.artistsNames}
               releaseDate={item.releaseDate}

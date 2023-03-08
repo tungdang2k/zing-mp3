@@ -17,6 +17,8 @@ const ListSong = ({ songdata }) => {
         dispatch(actions.setCurrentSongId(songdata?.encodeId));
         dispatch(actions.play(true));
         dispatch(actions.playAlbum(true))
+        dispatch(actions.setRecent({thumbnail:songdata?.thumbnailM, title:songdata?.title, sid:songdata?.encodeId, artists:songdata?.artistsNames}))
+
       }}
     >
       <div className="flex items-center gap-3 flex-1 justify-start">
