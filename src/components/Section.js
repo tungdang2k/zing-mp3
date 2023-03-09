@@ -1,6 +1,6 @@
 import React, { memo, } from "react";
 import {SectionItem} from './'
-const Section = ({ data }) => {
+const Section = ({ data,isSingerName }) => {
   return (
     <div className="mt-12 px-[59px] flex flex-col gap-5 ">
       <div className="flex items-center justify-between">
@@ -18,10 +18,12 @@ const Section = ({ data }) => {
                   thumbnailM={item?.thumbnailM}
                   title= {item.title}
                   artists={item?.artists}
-                  sortDescription={item?.sortDescription}
                   data={data}
                   encodeId={item?.encodeId}
                   key={item.encodeId}
+                  artistDes={item?.artists}
+                  sortDescription={item?.sortDescription}
+                  isSingerName = {isSingerName}
                 />
             
             ))}

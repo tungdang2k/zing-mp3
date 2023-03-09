@@ -18,15 +18,15 @@ const Public = () => {
   return (
     <div className="w-full flex h-screen flex-col bg-main-300">
       <div className="w-full h-full flex flex-auto">
-        <div className="w-[240px] h-full flex-none border border-blue-500 ">
+        <div className="w-[240px] h-full flex-none  ">
           <SidebarLeft />
         </div>
-        <div className="flex-auto relative flex flex-col border border-red-500 ">
+        <div className="flex-auto relative flex flex-col  ">
           {isLoading && (
             <div className="absolute top-0 bottom-0 right-0 left-0 z-20  flex items-center justify-center bg-main-200">
               <Loading />
             </div>
-          )} 
+          )}
           <div className="h-[70px] px-[59px] flex-none flex items-center  ">
             <Header />
           </div>
@@ -37,7 +37,7 @@ const Public = () => {
           </div>
         </div>
         {isShowRightSidebar && (
-          <div className="w-[329px] flex-none hidden 1600:flex h-screen border border-green-500 animate-slide-left">
+          <div className="w-[329px] flex-none hidden 1600:flex h-screen  animate-slide-left">
             <SidebarRight />
           </div>
         )}

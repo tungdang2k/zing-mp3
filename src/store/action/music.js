@@ -1,66 +1,67 @@
 import actionTypes from "./actionTypes";
 import * as apis from '../../apis'
 
-export const setCurrentSongId = (songId ) => ({
-    type:actionTypes.SET_CUR_SONG_ID,
+export const setCurrentSongId = (songId) => ({
+    type: actionTypes.SET_CUR_SONG_ID,
     songId
 })
 
-export const play = (flag ) => ({
-    type:actionTypes.PLAY,
+export const play = (flag) => ({
+    type: actionTypes.PLAY,
     flag
 })
 
-export const playAlbum = (flag ) => ({
-    type:actionTypes.SET_ALBUM,
+export const playAlbum = (flag) => ({
+    type: actionTypes.SET_ALBUM,
     flag
 })
-export const setPlaylist = (songs ) => ({
-    type:actionTypes.PLAYLIST,
+export const setPlaylist = (songs) => ({
+    type: actionTypes.PLAYLIST,
     songs
 })
 
-export const loading = (flag ) => ({
-    type:actionTypes.LOADING,
+export const loading = (flag) => ({
+    type: actionTypes.LOADING,
     flag
 })
 
 export const setCurSongData = (data) => ({
-    type:actionTypes.SET_CUR_SONG_DATA,
+    type: actionTypes.SET_CUR_SONG_DATA,
     data
 })
 
 export const setCurAlbumId = (pid) => ({
-    type:actionTypes.SET_CUR_ALBUM_ID,
+    type: actionTypes.SET_CUR_ALBUM_ID,
     pid
 })
 
 export const setRecent = (data) => ({
-    type:actionTypes.SET_RECENT,
+    type: actionTypes.SET_RECENT,
     data
 })
 
-export const search = (keyword) => async (dispatch) =>  {
+export const search = (keyword) => async (dispatch) => {
     try {
         const response = await apis.apiSearch(keyword)
-        if(response.data.err === 0){
+        if (response.data.err === 0) {
             dispatch({
-                type:actionTypes.SEARCH,
-                data:response.data.data
+                type: actionTypes.SEARCH,
+                data: response.data.data,
+                keyword
             })
-        }else{
+        } else {
             dispatch({
-                type:actionTypes.SEARCH,
-                data:null
+                type: actionTypes.SEARCH,
+                data: null
             })
         }
-    } catch (error) { 
+    } catch (error) {
         dispatch({
-            type:actionTypes.SEARCH,
-            data:null
+            type: actionTypes.SEARCH,
+            data: null
         })
     }
-    
+
 }
 
 // export const fetchDetailPlayList = (pid) => async (dispatch) =>{

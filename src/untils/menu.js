@@ -26,3 +26,21 @@ export const sidebarMenu = [
     },
 
 ]
+
+
+export const searchMenu = [
+    {
+        path: 'tat-ca',
+        text: 'TẤT CẢ',
+    },
+    {
+        path: 'bai-hat',
+        text: 'BÀI HÁT',
+    },
+    {
+        path: 'playlist',
+        text: 'PLAYLIST/ALBUM',
+    },
+
+
+]

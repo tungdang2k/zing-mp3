@@ -17,6 +17,13 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+    .ellipsis2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2; 
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
     .text-shadow-no1{
         text-shadow: 1px 1px 0 #565eba, -1px 1px 0 #565eba, -1px -1px 0 #565eba, 1px -1px 0 #565eba   ;
     }

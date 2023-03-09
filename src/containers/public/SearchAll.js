@@ -19,9 +19,8 @@ const SearchAll = () => {
               <img
                 src={searchData?.top?.thumbnail}
                 alt="thumbnail"
-                className={`w-[84px] h-[84px] object-cover ${
-                  searchData?.top?.objectType === "artist" && "rounded-full"
-                }`}
+                className={`w-[84px] h-[84px] object-cover ${searchData?.top?.objectType === "artist" && "rounded-full"
+                  }`}
               />
               <div className="flex flex-col text-xs">
                 <span>
@@ -63,11 +62,10 @@ const SearchAll = () => {
           {searchData?.songs?.map((item, index) => (
             <div
               key={item.encodeId}
-              className={`flex-auto w-[45%] ${
-                index % 2 !== 0 ? "pl-4" : "pr-4"
-              }`}
+              className={`flex-auto w-[45%] ${index % 2 !== 0 ? "pl-4" : "pr-4"
+                }`}
             >
-              <ListSong songdata={item} isHideAlbum />
+              <ListSong key={item.encodeId} songdata={item} isHideAlbum />
             </div>
           ))}
         </div>
@@ -83,9 +81,10 @@ const SearchAll = () => {
                 link={item?.link}
                 thumbnailM={item?.thumbnailM}
                 title={item?.title}
-                artists={item?.artistsNames}
-                data={item}
                 encodeId={item?.encodeId}
+                artistDes={item?.artists}
+                artists={item?.artistsNames}
+                isSingerName
               />
             ))}
         </div>
@@ -93,15 +92,16 @@ const SearchAll = () => {
 
       <div className="flex flex-col w-full">
         <h3 className="text-lg font-bold mb-5">Nghệ sĩ</h3>
-        <div className="flex items-start justify-between gap-[20px]">
+        <div className="flex  gap-[20px]">
           {searchData?.artists
             ?.filter((item, index) => index <= 4)
             ?.map((item) => (
               <Artist
-                key={item.encodeId}
+                key={item.id}
                 imgae={item?.thumbnailM}
                 title={item?.name}
                 follower={item?.totalFollow}
+                link={item?.link}
               />
             ))}
         </div>

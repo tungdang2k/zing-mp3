@@ -2,68 +2,70 @@ import actionTypes from "../action/actionTypes"
 
 const initState = {
     currentSongId: null,
-    isPlaying:false,
-    atAlbum :false,
+    isPlaying: false,
+    atAlbum: false,
     songs: null,
-    currentSongData:null,
-    curAlbumId:null,
-    recentSongs:[],
-    searchData:{},
+    currentSongData: null,
+    curAlbumId: null,
+    recentSongs: [],
+    searchData: {},
+    keyword: ''
 }
 
 const musicReducer = (state = initState, action) => {
     switch (action.type) {
         case actionTypes.SET_CUR_SONG_ID:
-            return{
+            return {
                 ...state,
-                currentSongId:action.songId || null
-            }   
+                currentSongId: action.songId || null
+            }
         case actionTypes.PLAY:
-            return{
+            return {
                 ...state,
-                isPlaying:action.flag 
-            }   
+                isPlaying: action.flag
+            }
         case actionTypes.SET_ALBUM:
-            return{
+            return {
                 ...state,
-                atAlbum:action.flag 
-            } 
+                atAlbum: action.flag
+            }
         case actionTypes.PLAYLIST:
-            return{
+            return {
                 ...state,
-                songs:action.songs  || null
-            } 
+                songs: action.songs || null
+            }
         case actionTypes.SET_CUR_SONG_DATA:
-            return{
+            return {
                 ...state,
-                currentSongData:action.data  || null
+                currentSongData: action.data || null
             }
         case actionTypes.SET_CUR_ALBUM_ID:
-            return{
+            return {
                 ...state,
-                curAlbumId:action.pid  || null
+                curAlbumId: action.pid || null
             }
         case actionTypes.SET_RECENT:
             let songs = state.recentSongs
-            if(action.data){
-                if(state.recentSongs?.some(i => i.sid === action.data.sid)){
+            if (action.data) {
+                if (state.recentSongs?.some(i => i.sid === action.data.sid)) {
                     songs = songs.filter(i => i.sid !== action.data.sid)
                 }
-                if(songs.length >= 20){
+                if (songs.length >= 20) {
                     songs.pop()
                 }
                 songs = [action.data, ...songs]
             }
-            return{
+            return {
                 ...state,
-                recentSongs :songs
+                recentSongs: songs
             }
         case actionTypes.SEARCH:
             return {
                 ...state,
-                searchData:action.data || {} 
+                searchData: action.data || {},
+                keyword: action.keyword || ''
             }
-                     
+
         default:
             return state;
     }

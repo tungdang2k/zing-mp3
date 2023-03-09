@@ -1,15 +1,17 @@
 import { MdOutlineLibraryMusic, } from 'react-icons/md'
 import { RiDonutChartFill, } from 'react-icons/ri'
-import { AiOutlineCiCircle,AiOutlineHeart,AiFillHeart,AiOutlinePause,AiOutlineUserAdd } from 'react-icons/ai'
-import { BsLayoutTextSidebar, BsArrowRight, BsArrowLeft,BsDot,BsFillPlayFill,BsMusicNoteList,BsVolumeMuteFill,
-    BsFillVolumeUpFill, BsVolumeDownFill} from 'react-icons/bs'
-import {FiSearch,FiRepeat} from 'react-icons/fi'
-import {HiDotsHorizontal}from 'react-icons/hi'
-import {BiSkipNext,BiSkipPrevious,BiShuffle,}from 'react-icons/bi'
-import {FaPlay}from 'react-icons/fa'
-import {CiMusicNote1}from 'react-icons/ci'
-import {TbRepeatOnce}from 'react-icons/tb'
-import {ImBin}from 'react-icons/im'
+import { AiOutlineCiCircle, AiOutlineHeart, AiFillHeart, AiOutlinePause, AiOutlineUserAdd, AiFillCloseCircle, AiOutlineCloseCircle } from 'react-icons/ai'
+import {
+    BsLayoutTextSidebar, BsArrowRight, BsArrowLeft, BsDot, BsFillPlayFill, BsMusicNoteList, BsVolumeMuteFill,
+    BsFillVolumeUpFill, BsVolumeDownFill
+} from 'react-icons/bs'
+import { FiSearch, FiRepeat } from 'react-icons/fi'
+import { HiDotsHorizontal } from 'react-icons/hi'
+import { BiSkipNext, BiSkipPrevious, BiShuffle, } from 'react-icons/bi'
+import { FaPlay } from 'react-icons/fa'
+import { CiMusicNote1 } from 'react-icons/ci'
+import { TbRepeatOnce } from 'react-icons/tb'
+import { ImBin } from 'react-icons/im'
 
 const icons = {
     BsArrowLeft,
@@ -21,6 +23,8 @@ const icons = {
     AiOutlineHeart,
     AiOutlinePause,
     AiOutlineUserAdd,
+    AiFillCloseCircle,
+    AiOutlineCloseCircle,
     FiSearch,
     FiRepeat,
     BiSkipNext,
@@ -38,7 +42,7 @@ const icons = {
     BsFillVolumeUpFill,
     BsVolumeDownFill,
     ImBin,
-    
+
 }
 
 export default icons
