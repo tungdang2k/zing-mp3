@@ -1,11 +1,11 @@
 import axios from "../axios";
 
-export const apiGetSong =  (songId) => new Promise( async (resolve, reject) =>{
+export const apiGetSong = (songId) => new Promise(async (resolve, reject) => {
     try {
         const response = await axios({
-            url:'/song',
-            method:'get',
-            params:{id :songId }
+            url: '/song',
+            method: 'get',
+            params: { id: songId }
         })
         resolve(response)
     } catch (error) {
@@ -54,3 +54,35 @@ export const apiSearch = (keyword) => new Promise(async (resolve, reject) => {
 })
 
 
+export const apiGetArtistSongs = (singerId) => new Promise(async (resolve, reject) => {
+    try {
+        const response = await axios({
+            url: '/artistsong',
+            method: 'get',
+            params: {
+                id: singerId,
+                page: 1,
+                count: 50,
+            }
+        })
+        resolve(response)
+    } catch (error) {
+        reject(error)
+    }
+})
+
+
+export const apiGetArtist = (alias) => new Promise(async (resolve, reject) => {
+    try {
+        const response = await axios({
+            url: '/artist',
+            method: 'get',
+            params: {
+                name: alias
+            }
+        })
+        resolve(response)
+    } catch (error) {
+        reject(error)
+    }
+})

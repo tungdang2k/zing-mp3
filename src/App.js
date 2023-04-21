@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { Home, Public, Login, Album, WeekRank, ZingChart, Search, SearchSongs, SearchAll, Artist, SearchPlaylist } from "./containers/public"
+import { Home, Public, Login, Album, WeekRank, ZingChart, Search, SearchSongs, SearchAll, Singer, SearchPlaylist } from "./containers/public"
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from "react";
 
@@ -26,7 +26,8 @@ function App() {
             <Route path={path.PLAYLIST__TITLE__PID} element={<Album />} />
             <Route path={path.WEEKRANK__TITLE__PID} element={<WeekRank />} />
             <Route path={path.ZING_CHART} element={<ZingChart />} />
-            <Route path={path.HOME__SINGER} element={<Artist />} />
+            <Route path={path.HOME__SINGER} element={<Singer />} />
+            <Route path={path.HOME_ARTIST__SINGER} element={<Singer />} />
 
             <Route path={path.SEARCH} element={<Search />}>
               <Route path={path.ALL} element={<SearchAll />} />

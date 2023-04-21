@@ -7,7 +7,7 @@ import * as actions from "../store/action";
 
 const { CiMusicNote1 } = icons;
 
-const ListSong = ({ songdata,isHideAlbum }) => {
+const ListSong = ({ songdata, isHideAlbum, isHideNode }) => {
   const dispatch = useDispatch();
 
   return (
@@ -17,12 +17,12 @@ const ListSong = ({ songdata,isHideAlbum }) => {
         dispatch(actions.setCurrentSongId(songdata?.encodeId));
         dispatch(actions.play(true));
         dispatch(actions.playAlbum(true))
-        dispatch(actions.setRecent({thumbnail:songdata?.thumbnailM, title:songdata?.title, sid:songdata?.encodeId, artists:songdata?.artistsNames}))
+        dispatch(actions.setRecent({ thumbnail: songdata?.thumbnailM, title: songdata?.title, sid: songdata?.encodeId, artists: songdata?.artistsNames }))
 
       }}
     >
       <div className="flex items-center gap-3 flex-1 justify-start">
-        { !isHideAlbum &&<CiMusicNote1 size={16} />}
+        {!isHideNode && <CiMusicNote1 size={16} />}
         <img
           src={songdata?.thumbnailM}
           alt="thumbnail"
@@ -30,14 +30,14 @@ const ListSong = ({ songdata,isHideAlbum }) => {
         />
         <span className="flex flex-col">
           <span className="text-sm font-semibold ellipsis1">
-              {songdata?.title}
+            {songdata?.title}
           </span>
           <span className="ellipsis text-xs opacity-70">
-              {songdata?.artistsNames}
+            {songdata?.artistsNames}
           </span>
         </span>
       </div>
-      { !isHideAlbum && <div className=" flex flex-1 items-center justify-start ellipsis1">
+      {!isHideAlbum && <div className=" flex flex-1 items-center justify-start ellipsis1">
         {songdata?.album?.title}
       </div>}
       <div className=" flex flex-1 justify-end text-xs ">

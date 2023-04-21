@@ -8,7 +8,6 @@ const SearchAll = () => {
   const { searchData } = useSelector((state) => state.music);
   // console.log(searchData.playlists.map(item => item.artists.map(item => item.name)
   //   ));
-  console.log(searchData);
   return (
     <div className="w-full flex flex-col px-[60px] gap-[60px]">
       <div className="flex flex-col">
@@ -98,7 +97,7 @@ const SearchAll = () => {
             ?.map((item) => (
               <Artist
                 key={item.id}
-                imgae={item?.thumbnailM}
+                image={item?.thumbnailM}
                 title={item?.name}
                 follower={item?.totalFollow}
                 link={item?.link}

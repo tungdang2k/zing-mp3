@@ -1,6 +1,8 @@
 import React, { memo, } from "react";
-import {SectionItem} from './'
-const Section = ({ data,isSingerName }) => {
+import { SectionItem } from './'
+const Section = ({ data, isSingerName }) => {
+
+
   return (
     <div className="mt-12 px-[59px] flex flex-col gap-5 ">
       <div className="flex items-center justify-between">
@@ -12,20 +14,20 @@ const Section = ({ data,isSingerName }) => {
           data?.items?.length > 0 &&
           data?.items
             .filter((item, index) => index <= 4)
-            ?.map((item,index) => (
-                <SectionItem 
-                  link={item?.link}
-                  thumbnailM={item?.thumbnailM}
-                  title= {item.title}
-                  artists={item?.artists}
-                  data={data}
-                  encodeId={item?.encodeId}
-                  key={item.encodeId}
-                  artistDes={item?.artists}
-                  sortDescription={item?.sortDescription}
-                  isSingerName = {isSingerName}
-                />
-            
+            ?.map((item, index) => (
+              <SectionItem
+                link={item?.link}
+                thumbnailM={item?.thumbnailM}
+                title={item.title}
+                artists={item?.artists}
+                data={data}
+                encodeId={item?.encodeId}
+                key={item.encodeId}
+                artistDes={item?.artists}
+                sortDescription={item?.sortDescription}
+                isSingerName={isSingerName}
+              />
+
             ))}
       </div>
     </div>

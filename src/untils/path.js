@@ -12,6 +12,7 @@ const path = {
     SONG: 'bai-hat',
     // ARTIST: 'nghe-si',
     HOME__SINGER: ':singer',
+    HOME_ARTIST__SINGER: 'nghe-si/:singer',
     PLAYLIST_SEARCH: 'playlist'
 
 }

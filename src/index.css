@@ -33,6 +33,11 @@
     .text-shadow-no3{
         text-shadow: 1px 1px 0 #d14b53, -1px 1px 0 #d14b53, -1px -1px 0 #d14b53, 1px -1px 0 #d14b53   ;
     }
+
+    .slick-next::before,.slick-prev::before {
+        font-size: 38px !important;
+    }
+    
 /* @tailwind plugins; */
 }
 
