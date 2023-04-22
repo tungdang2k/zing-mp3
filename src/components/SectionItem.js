@@ -15,6 +15,7 @@ const SectionItem = ({
   data,
   encodeId,
   isSingerName,
+  linkArtist,
 }) => {
   const navigate = useNavigate();
   const [isHover, setIsHover] = useState(false);
@@ -34,7 +35,7 @@ const SectionItem = ({
   };
   return (
     <div
-      className="flex flex-col gap-3 flex-auto w-1/5 text-sm  "
+      className="flex flex-col gap-3 w-1/5 text-sm  "
       key={encodeId}
     >
       <div
@@ -80,7 +81,7 @@ const SectionItem = ({
         >
           {title}
         </span>
-        {isSingerName && <ArtistsDescription artistDes={artistDes} />}
+        {isSingerName && <ArtistsDescription artistDes={artistDes} linkArtist={linkArtist} />}
         {!isSingerName && (
           <span
             className="ellipsis cursor-pointer"

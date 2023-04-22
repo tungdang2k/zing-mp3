@@ -1,10 +1,12 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const ArtistsDescription = ({ artistDes }) => {
+const ArtistsDescription = ({ artistDes, linkArtist }) => {
   const navigate = useNavigate()
   return (
-    <div className="ellipsis2 ">
+    <Link className="ellipsis2 "
+      to={linkArtist}
+    >
       {artistDes?.map((item, index) => (
         <span
           className="cursor-pointer hover:text-main-500 hover:underline "
@@ -14,7 +16,7 @@ const ArtistsDescription = ({ artistDes }) => {
         // }}
         >{`${item.name}${index !== artistDes.length - 1 ? ", " : ""}`}</span>
       ))}
-    </div>
+    </Link>
   );
 };
 
