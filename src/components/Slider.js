@@ -1,5 +1,6 @@
 import React,{useEffect, useRef} from "react";
 import { useSelector,useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { getArrSlider } from "../untils/fn";
 import * as action from '../store/action'
@@ -7,7 +8,8 @@ import * as action from '../store/action'
 const Slider = () => {
   const { banner } = useSelector((state) => state.app);
   const dispatch = useDispatch()
-    const listElement = useRef()
+  const listElement = useRef()
+  const naviage = useNavigate()
 
     useEffect(()=>{
       const  silderEls = document.getElementsByClassName('slider')  
@@ -25,9 +27,10 @@ const Slider = () => {
                 silderEls[i]?.classList?.remove('animate-slide-left2', 'order-2', 'z-10')
 
                 if(list.some(item => item === i) ){
-                    silderEls[i].style.display = `none`
+                    silderEls[i].style.cssText = `display: none`
+
                 }else{
-                    silderEls[i].style.display = `block`
+                  silderEls[i].style.cssText = `display: block`
                     
                 }
             }
@@ -49,16 +52,8 @@ const Slider = () => {
             // if(max > silderEls.length - 1 ) max = 0
             // if(min > silderEls.length - 1 ) min = 0
 
-            if(min === silderEls.length - 1){
-              min = 0
-            }else{
-              min +=1
-            }
-            if(max === silderEls.length - 1){
-              max =0
-            }else{
-              max +=1
-            }
+            min = (min === silderEls.length - 1) ? 0 : min + 1
+            max = (max === silderEls.length - 1) ? 0 : max + 1
 
 
         }, 3000);
@@ -69,10 +64,20 @@ const Slider = () => {
     },[])
 
     const handleClickBanner = (item)=>{
-      if(item?.type === 4){
+      if(item?.type === 1 ){
         dispatch(action.setCurrentSongId(item.encodeId))
+        dispatch(action.play(true))
+        dispatch(action.setPlaylist(null))
+      }else if(item?.type === 4){
+        const albumPath  = item?.link?.split(".")[0]
+        naviage(albumPath)
+      }else{
+        dispatch(action.setPlaylist(null))
+
       }
     }
+
+    
   return (
     <div className='w-full overflow-hidden px-[59px]'>
       <div className="flex gap-8 w-full pt-8 " 
@@ -84,7 +89,7 @@ const Slider = () => {
             alt={item.banner}
             key={item.encodeId}
             onClick={() => handleClickBanner(item)}
-            className={`slider flex-1 object-contain w-[30%] rounded-lg ${index <= 2 ? 'block' : 'hidden'} ` }
+            className={`slider flex-1 object-contain w-[30%] rounded-lg cursor-pointer ${index <= 2 ? 'block' : 'hidden'} ` }
           />
         ))}
       </div>

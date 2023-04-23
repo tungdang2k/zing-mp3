@@ -5,7 +5,7 @@ export const getHome = () => async (dispatch) =>{
     
     try {
         const response = await apis.getHome();
-        console.log(response.data)
+        // console.log(response.data)
         if(response?.data.err === 0){
             dispatch({
                 type:actionTypes.GET_HOME,
