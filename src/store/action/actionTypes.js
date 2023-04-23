@@ -1,12 +1,6 @@
 const actionTypes = {
     GET_HOME: 'GET_HOME',
-    SET_CURR_SONG_ID:'SET_CURR_SONG_ID',
-    LOADING:'LOADING',
-    
-    //music
-    PLAY:'PLAY',
-    SET_ALBUM:'SET_ALBUM',
-    PLAYLIST:'PLAYLIST',
+    SET_CURR_SONG_ID:'SET_CURR_SONG_ID'
 }
 
 export default actionTypes
