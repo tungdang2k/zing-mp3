@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+import React,{useEffect} from 'react'
+
+import { Header, Slider } from '../../components'
+
+const Home = () => {
+
+    return (
+        <div className='overflow-y-auto w-full'>
+            <div className='h-[70px]  px-[59px] flex items-center  '>
+                <Header />
+            </div>
+                <Slider/>
+=======
 import React from 'react'
 import { useSelector } from "react-redux";
 import { Link } from 'react-router-dom'
@@ -51,6 +65,7 @@ const Home = () => {
             <div className="px-[59px]"></div>
             <div className="w-full h-[500px] ">
             </div>
+>>>>>>> 91464eb50fac1167e8cff16304bc0d04aff6fdf9
         </div>
     )
 }

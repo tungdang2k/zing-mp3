@@ -2,6 +2,8 @@ import actionTypes from "../action/actionTypes"
 
 const initState = {
     banner: [],
+<<<<<<< HEAD
+=======
     friday: {},
     newEveryday: {},
     top100: {},
@@ -16,12 +18,19 @@ const initState = {
     rank: [],
     singers: null,
     livestream: null,
+>>>>>>> 91464eb50fac1167e8cff16304bc0d04aff6fdf9
 }
 
 const appReducer = (state = initState, action) => {
     switch (action.type) {
         case actionTypes.GET_HOME:
             return {
+<<<<<<< HEAD
+                ...state, 
+                banner:action.homeData?.find(item => item.sectionType === 'banner')?.items || null
+            }
+
+=======
                 ...state,
                 banner: action.homeData?.find(item => item.sectionId === 'hSlider')?.items || null,
                 friday: action.homeData?.find(item => item.sectionId === 'hAutoTheme1') || null,
@@ -44,6 +53,7 @@ const appReducer = (state = initState, action) => {
                 ...state,
                 isLoading: action.flag
             }
+>>>>>>> 91464eb50fac1167e8cff16304bc0d04aff6fdf9
         default:
             return state;
     }

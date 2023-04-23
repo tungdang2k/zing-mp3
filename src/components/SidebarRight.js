@@ -8,9 +8,18 @@ import { Scrollbars } from "react-custom-scrollbars";
 
 const { ImBin } = icons;
 const SidebarRight = () => {
+<<<<<<< HEAD
+    return (
+        <div className='bg-[#d9d7d4]'>
+            SidebarRightfdf
+        </div>
+    )
+}
+=======
   const [isRecent, setIsRecent] = useState(false);
   const [playlist, setPlaylist] = useState(null);
   const { currentSongData, curAlbumId,isPlaying,recentSongs,currentSongId } = useSelector((state) => state.music);
+>>>>>>> 91464eb50fac1167e8cff16304bc0d04aff6fdf9
 
   useEffect(()=>{
     if(curAlbumId) fetchDetailtPlaylist();

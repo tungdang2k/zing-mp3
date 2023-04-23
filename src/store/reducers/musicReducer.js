@@ -2,6 +2,8 @@ import actionTypes from "../action/actionTypes"
 
 const initState = {
     currentSongId: null,
+<<<<<<< HEAD
+=======
     isPlaying: false,
     atAlbum: false,
     songs: null,
@@ -10,6 +12,7 @@ const initState = {
     recentSongs: [],
     searchData: {},
     keyword: ''
+>>>>>>> 91464eb50fac1167e8cff16304bc0d04aff6fdf9
 }
 
 const musicReducer = (state = initState, action) => {
@@ -17,6 +20,9 @@ const musicReducer = (state = initState, action) => {
         case actionTypes.SET_CUR_SONG_ID:
             return {
                 ...state,
+<<<<<<< HEAD
+                currentSongId:action.songId || null
+=======
                 currentSongId: action.songId || null
             }
         case actionTypes.PLAY:
@@ -64,6 +70,7 @@ const musicReducer = (state = initState, action) => {
                 ...state,
                 searchData: action.data || {},
                 keyword: action.keyword || ''
+>>>>>>> 91464eb50fac1167e8cff16304bc0d04aff6fdf9
             }
 
         default:

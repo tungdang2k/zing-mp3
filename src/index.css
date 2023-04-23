@@ -1,5 +1,8 @@
 @tailwind base;
 @tailwind components;
+<<<<<<< HEAD
+@tailwind utilities;
+=======
 @tailwind utilities;
 
 @layer components {
@@ -41,3 +44,4 @@
 /* @tailwind plugins; */
 }
 
+>>>>>>> 91464eb50fac1167e8cff16304bc0d04aff6fdf9

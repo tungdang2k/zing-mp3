@@ -2,6 +2,10 @@ export { default as SidebarLeft } from "./SidebarLeft"
 export { default as SidebarRight } from "./SidebarRight"
 export { default as Header } from "./Header"
 export { default as Search } from "./Search"
+<<<<<<< HEAD
+export {default as Slider} from "./Slider"
+export {default as Player} from "./Player"
+=======
 export { default as Slider } from "./Slider"
 export { default as Player } from "./Player"
 export { default as ListSong } from "./ListSong"
@@ -17,3 +21,4 @@ export { default as SectionItem } from "./SectionItem"
 export { default as ChartSection } from "./ChartSection"
 export { default as Artist } from "./Artist"
 export { default as Livestream } from "./Livestream"
+>>>>>>> 91464eb50fac1167e8cff16304bc0d04aff6fdf9

@@ -1,18 +1,39 @@
+<<<<<<< HEAD
+import React from 'react'
+import { Outlet } from 'react-router-dom'
+
+import { SidebarLeft, SidebarRight,Player } from '../../components'
+=======
 import React, { useState } from "react";
 import { Outlet, useParams } from "react-router-dom";
 import { Scrollbars } from "react-custom-scrollbars";
 import { useSelector } from "react-redux";
+>>>>>>> 91464eb50fac1167e8cff16304bc0d04aff6fdf9
 
-import {
-  SidebarLeft,
-  SidebarRight,
-  Player,
-  Header,
-  Loading,
-  NewRelease,
-} from "../../components";
 
 const Public = () => {
+<<<<<<< HEAD
+    return (
+        <div className='w-full flex min-h-screen flex-col bg-main-300'>
+            <div className='w-full h-full flex flex-auto'>
+                <div className='w-[240px] min-h-screen flex-none border border-blue-500 '>
+                    <SidebarLeft />
+                </div>
+                <div className='flex-auto border border-red-500'>
+                    <Outlet />
+                </div>
+                <div className="w-[329px] flex-none  border border-green-500">
+                    {/* <SidebarRight /> */}
+                    <SidebarRight />
+                </div>
+            </div>
+            <div className="flex-none h-[90px]">
+                <Player/>
+            </div>
+        </div>
+    )
+}
+=======
   const [isShowRightSidebar, setIsShowRightSidebar] = useState(true);
   const { isLoading } = useSelector((state) => state.app);
   const { singer } = useParams()
@@ -49,5 +70,6 @@ const Public = () => {
     </div>
   );
 };
+>>>>>>> 91464eb50fac1167e8cff16304bc0d04aff6fdf9
 
-export default Public;
+export default Public

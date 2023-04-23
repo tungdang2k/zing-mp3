@@ -6,6 +6,8 @@ export const setCurrentSongId = (songId) => ({
     songId
 })
 
+<<<<<<< HEAD
+=======
 export const play = (flag) => ({
     type: actionTypes.PLAY,
     flag
@@ -104,4 +106,5 @@ export const getSearchSongs = (singerId) => async (dispatch) => {
 //         })
 //     }
 // }
+>>>>>>> 91464eb50fac1167e8cff16304bc0d04aff6fdf9
 
