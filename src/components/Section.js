@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 import React, { memo } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Section = ({ data }) => {
   const navigate = useNavigate();
 
+=======
+import React, { memo, } from "react";
+import {SectionItem} from './'
+const Section = ({ data }) => {
+>>>>>>> parent of f98498b (search2)
   return (
     <div className="mt-12 px-[59px] flex flex-col gap-5 ">
       <div className="flex items-center justify-between">
@@ -15,6 +21,7 @@ const Section = ({ data }) => {
           data?.items?.length > 0 &&
           data?.items
             .filter((item, index) => index <= 4)
+<<<<<<< HEAD
             ?.map((item) => (
               <div
                 className="flex flex-col gap-3 flex-auto w-1/5 text-sm cursor-pointer"
@@ -27,6 +34,18 @@ const Section = ({ data }) => {
                   src={item.thumbnailM}
                   alt="thumbnail"
                   className="w-full h-auto rounded-lg  "
+=======
+            ?.map((item,index) => (
+                <SectionItem 
+                  link={item?.link}
+                  thumbnailM={item?.thumbnailM}
+                  title= {item.title}
+                  artists={item?.artists}
+                  sortDescription={item?.sortDescription}
+                  data={data}
+                  encodeId={item?.encodeId}
+                  key={item.encodeId}
+>>>>>>> parent of f98498b (search2)
                 />
                 <span className="flex flex-col">
                   <span className="font-semibold ">{item.title}</span>

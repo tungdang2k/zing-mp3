@@ -37,7 +37,11 @@ const Public = () => {
           </div>
         </div>
         {isShowRightSidebar && (
+<<<<<<< HEAD
           <div className="w-[329px] flex-none hidden 1600:flex border border-green-500 animate-slide-left">
+=======
+          <div className="w-[329px] flex-none hidden 1600:flex h-screen border border-green-500 animate-slide-left">
+>>>>>>> parent of f98498b (search2)
             <SidebarRight />
           </div>
         )}
