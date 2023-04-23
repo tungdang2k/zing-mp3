@@ -1,5 +1,8 @@
 @tailwind base;
 @tailwind components;
+<<<<<<< HEAD
+@tailwind utilities;
+=======
 @tailwind utilities;
 
 @layer components {
@@ -17,6 +20,16 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+<<<<<<< HEAD
+=======
+    .ellipsis2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2; 
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+>>>>>>> 02c123b5bed0469c580f5191e324cb35f117f02e
     .text-shadow-no1{
         text-shadow: 1px 1px 0 #565eba, -1px 1px 0 #565eba, -1px -1px 0 #565eba, 1px -1px 0 #565eba   ;
     }
@@ -26,6 +39,15 @@
     .text-shadow-no3{
         text-shadow: 1px 1px 0 #d14b53, -1px 1px 0 #d14b53, -1px -1px 0 #d14b53, 1px -1px 0 #d14b53   ;
     }
+<<<<<<< HEAD
+=======
+
+    .slick-next::before,.slick-prev::before {
+        font-size: 38px !important;
+    }
+    
+>>>>>>> 02c123b5bed0469c580f5191e324cb35f117f02e
 /* @tailwind plugins; */
 }
 
+>>>>>>> 91464eb50fac1167e8cff16304bc0d04aff6fdf9

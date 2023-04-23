@@ -14,7 +14,7 @@ const commonConfig = {
 const mucsicConfig ={
     ...commonConfig,
     key:'music',
-    whitelist:['currentSongId']
+    whitelist:['currentSongId','currentSongData','curAlbumId','recentSongs']
 }
 
 const rootReducer = combineReducers({

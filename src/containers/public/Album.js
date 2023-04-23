@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import moment from "moment/moment";
 import { Scrollbars } from "react-custom-scrollbars";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,15 +12,18 @@ import icons from "../../untils/icons";
 const { BsFillPlayFill } = icons;
 
 const Album = () => {
+
+  const location = useLocation()
   const {isPlaying} = useSelector(
     (state) => state.music
   );
-  const { title, pid } = useParams();
+  const {  pid } = useParams();
   const [playlistData, setPlaylistData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(actions.setCurAlbumId(pid))
     const fetchDetailPlayList = async () => {
       dispatch(actions.loading(true))
       const response = await apis.apiGetDetailPlayList(pid);
@@ -32,11 +35,19 @@ const Album = () => {
     };
     fetchDetailPlayList();
   }, [pid]);
-  // console.log(playlistData);
+
+  useEffect(()=>{
+
+    if(location.state?.playAlbum){
+      const randomSong = Math.round(Math.random() * playlistData?.song?.items?.length ) - 1
+      dispatch(actions.setCurrentSongId(playlistData?.song?.items[randomSong?.encodeId])) 
+      dispatch(actions.play(true))
+    }
+  },[pid,playlistData])
 
   return (
     <div className="flex relative gap-8 w-full h-full px-[59px] ">
-      <div className="flex-none w-1/4 border border-red-500 flex  flex-col items-center gap-2 ">
+      <div className="flex-none w-1/4  flex  flex-col items-center gap-2 ">
         <div className="w-full relative overflow-hidden">
           <img
             className={`w-full object-contain  shadow-md ${
@@ -74,7 +85,7 @@ const Album = () => {
         </div>
       </div>
       <Scrollbars style={{ width: "100%", height: "80%" }}>
-        <div className="flex-auto border border-blue-600">
+        <div className="flex-auto ">
           <span className="text-sm">
             <span className="text-gray-600">Lời tựa </span>
             <span className="">{playlistData?.sortDescription}</span>

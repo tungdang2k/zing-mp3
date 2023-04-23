@@ -8,7 +8,7 @@ const NewRelease = () => {
   const [isActived, setIsActived] = useState(0);
   const [songs, setSongs] = useState([]);
 
-  useEffect(() => { 
+  useEffect(() => {
     isActived === 0
       ? setSongs(newRelease?.items?.all)
       : isActived === 1
@@ -20,7 +20,7 @@ const NewRelease = () => {
     <div className="mt-12 px-[59px] ">
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-bold ">{newRelease?.title}</h3>
-        <span className="text-xs ">tat ca</span>
+        <span className="text-xs ">TẤT CẢ</span>
       </div>
       <div className="flex items-center gap-5 text-xs  ">
         <button
@@ -54,14 +54,15 @@ const NewRelease = () => {
       </div>
       <div className="flex flex-wrap w-full  ">
         {songs?.map((item) => (
-          <SongItem
-            key={item.encodeId}
-            thumnail={item.thumbnail}
-            title={item.title}
-            artists={item.artistsNames}
-            releaseDate={item.releaseDate}
-            sid={item.encodeId}
-          />
+          <div key={item.encodeId} className="w-[45%] min-[1024px]:w-[30%]">
+            <SongItem
+              thumbnail={item.thumbnail}
+              title={item.title}
+              artists={item.artistsNames}
+              releaseDate={item.releaseDate}
+              sid={item.encodeId}
+            />
+          </div>
         ))}
       </div>
     </div>

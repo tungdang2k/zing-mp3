@@ -1,9 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, { memo } from "react";
 import { useNavigate } from "react-router-dom";
+=======
+import React, { memo, } from "react";
+import { SectionItem } from './'
+const Section = ({ data, isSingerName }) => {
+>>>>>>> 02c123b5bed0469c580f5191e324cb35f117f02e
 
-const Section = ({ data }) => {
-  const navigate = useNavigate();
 
 =======
 import React, { memo, } from "react";
@@ -11,16 +15,17 @@ import {SectionItem} from './'
 const Section = ({ data }) => {
 >>>>>>> parent of f98498b (search2)
   return (
-    <div className="mt-12 px-[59px] flex flex-col gap-5 ">
+    <div className="mt-12 px-[44px] flex flex-col gap-1 ">
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-bold ">{data?.title}</h3>
-        <span className="text-xs ">tat ca</span>
+        {data?.items?.length >= 6 && <span className="text-xs ">TẤT CẢ </span>}
       </div>
-      <div className=" flex items-start justify-between gap-[28px] ">
+      <div className=" flex  gap-[28px] ">
         {data &&
           data?.items?.length > 0 &&
           data?.items
             .filter((item, index) => index <= 4)
+<<<<<<< HEAD
 <<<<<<< HEAD
             ?.map((item) => (
               <div
@@ -63,6 +68,27 @@ const Section = ({ data }) => {
                 </span>
               </div>
             ))}
+=======
+            ?.map((item, index) => {
+
+              // console.log(item?.artists?.map(item => item.link));
+              return <SectionItem
+                link={item?.link}
+                thumbnailM={item?.thumbnailM}
+                title={item.title}
+                artists={item?.artists}
+                data={data}
+                encodeId={item?.encodeId}
+                key={item.encodeId}
+                artistDes={item?.artists}
+                sortDescription={item?.sortDescription}
+                isSingerName={isSingerName}
+                linkArtist={item?.artists[1]?.link}
+              />
+
+
+            })}
+>>>>>>> 02c123b5bed0469c580f5191e324cb35f117f02e
       </div>
     </div>
   );

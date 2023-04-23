@@ -8,7 +8,10 @@ const SearchAll = () => {
   const { searchData } = useSelector((state) => state.music);
   // console.log(searchData.playlists.map(item => item.artists.map(item => item.name)
   //   ));
+<<<<<<< HEAD
   console.log(searchData);
+=======
+>>>>>>> 02c123b5bed0469c580f5191e324cb35f117f02e
   return (
     <div className="w-full flex flex-col px-[60px] gap-[60px]">
       <div className="flex flex-col">
@@ -19,9 +22,14 @@ const SearchAll = () => {
               <img
                 src={searchData?.top?.thumbnail}
                 alt="thumbnail"
+<<<<<<< HEAD
                 className={`w-[84px] h-[84px] object-cover ${
                   searchData?.top?.objectType === "artist" && "rounded-full"
                 }`}
+=======
+                className={`w-[84px] h-[84px] object-cover ${searchData?.top?.objectType === "artist" && "rounded-full"
+                  }`}
+>>>>>>> 02c123b5bed0469c580f5191e324cb35f117f02e
               />
               <div className="flex flex-col text-xs">
                 <span>
@@ -63,11 +71,18 @@ const SearchAll = () => {
           {searchData?.songs?.map((item, index) => (
             <div
               key={item.encodeId}
+<<<<<<< HEAD
               className={`flex-auto w-[45%] ${
                 index % 2 !== 0 ? "pl-4" : "pr-4"
               }`}
             >
               <ListSong songdata={item} isHideAlbum />
+=======
+              className={`flex-auto w-[45%] ${index % 2 !== 0 ? "pl-4" : "pr-4"
+                }`}
+            >
+              <ListSong key={item.encodeId} songdata={item} isHideAlbum />
+>>>>>>> 02c123b5bed0469c580f5191e324cb35f117f02e
             </div>
           ))}
         </div>
@@ -83,9 +98,16 @@ const SearchAll = () => {
                 link={item?.link}
                 thumbnailM={item?.thumbnailM}
                 title={item?.title}
+<<<<<<< HEAD
                 artists={item?.artistsNames}
                 data={item}
                 encodeId={item?.encodeId}
+=======
+                encodeId={item?.encodeId}
+                artistDes={item?.artists}
+                artists={item?.artistsNames}
+                isSingerName
+>>>>>>> 02c123b5bed0469c580f5191e324cb35f117f02e
               />
             ))}
         </div>
@@ -93,15 +115,27 @@ const SearchAll = () => {
 
       <div className="flex flex-col w-full">
         <h3 className="text-lg font-bold mb-5">Nghệ sĩ</h3>
+<<<<<<< HEAD
         <div className="flex items-start justify-between gap-[20px]">
+=======
+        <div className="flex  gap-[20px]">
+>>>>>>> 02c123b5bed0469c580f5191e324cb35f117f02e
           {searchData?.artists
             ?.filter((item, index) => index <= 4)
             ?.map((item) => (
               <Artist
+<<<<<<< HEAD
                 key={item.encodeId}
                 imgae={item?.thumbnailM}
                 title={item?.name}
                 follower={item?.totalFollow}
+=======
+                key={item.id}
+                image={item?.thumbnailM}
+                title={item?.name}
+                follower={item?.totalFollow}
+                link={item?.link}
+>>>>>>> 02c123b5bed0469c580f5191e324cb35f117f02e
               />
             ))}
         </div>

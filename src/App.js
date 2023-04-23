@@ -1,5 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
+<<<<<<< HEAD
 import { Home, Public, Login, Album, WeekRank, ZingChart, Search, SearchSongs, SearchAll, Singer, SearchPlaylist } from "./containers/public"
+=======
+<<<<<<< HEAD
+import { Home, Public, Login } from "./containers/public"
+=======
+import { Home, Public, Login, Album, WeekRank, ZingChart, Search, SearchSongs, SearchAll, Singer, SearchPlaylist } from "./containers/public"
+>>>>>>> 91464eb50fac1167e8cff16304bc0d04aff6fdf9
+>>>>>>> 02c123b5bed0469c580f5191e324cb35f117f02e
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from "react";
 
@@ -12,8 +20,16 @@ function App() {
 
   useEffect(() => {
     dispatch(action.getHome())
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  },[])
+  const { homeData } = useSelector(state => state.app)
+=======
+>>>>>>> 02c123b5bed0469c580f5191e324cb35f117f02e
   }, [])
   // const { homeData } = useSelector(state => state.app)
+>>>>>>> 91464eb50fac1167e8cff16304bc0d04aff6fdf9
 
   return (
     <>
@@ -22,6 +38,11 @@ function App() {
           <Route path={path.PUBLIC} element={<Public />}>
             <Route path={path.HOME} element={<Home />} />
             <Route path={path.LOGIN} element={<Login />} />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 02c123b5bed0469c580f5191e324cb35f117f02e
             <Route path={path.ALBUM__TITLE__PID} element={<Album />} />
             <Route path={path.PLAYLIST__TITLE__PID} element={<Album />} />
             <Route path={path.WEEKRANK__TITLE__PID} element={<WeekRank />} />
@@ -36,6 +57,10 @@ function App() {
             </Route>
 
 
+<<<<<<< HEAD
+=======
+>>>>>>> 91464eb50fac1167e8cff16304bc0d04aff6fdf9
+>>>>>>> 02c123b5bed0469c580f5191e324cb35f117f02e
 
             <Route path={path.STAR} element={<Login />} />
           </Route>
